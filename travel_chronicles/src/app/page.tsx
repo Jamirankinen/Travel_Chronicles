@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import VideoBackground from '@/components/VideoBackground';
 import Navbar from '@/components/Navbar';
 import FeaturedTrips from '@/components/FeaturedTrips';
@@ -27,14 +26,6 @@ export default function HomePage() {
       {/* Background Video with Animated Overlay Text */}
       <section className="relative h-screen w-full">
         <VideoBackground />
-        <motion.div
-          initial={{ y: 0, opacity: 1 }}
-          animate={{ y: -100, opacity: 0 }}
-          transition={{ duration: 1.5 }}
-          className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center text-white text-4xl md:text-6xl font-bold"
-        >
-          Trip Down Memoryline
-        </motion.div>
       </section>
 
       {/* Animated Blurry Background Section */}
