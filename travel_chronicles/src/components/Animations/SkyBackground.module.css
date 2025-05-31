@@ -1,0 +1,44 @@
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: #87ceeb; /* Bright clear sky blue */
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sunWrapper {
+  position: fixed;
+  top: 100px; /* Increased from 20px to push it down */
+  right: 30px;
+  width: 120px;
+  height: 120px;
+  z-index: 0; /* Behind navbar (assuming navbar is 1 or more) */
+  cursor: pointer;
+  pointer-events: auto;
+  transition: filter 0.3s ease;
+}
+
+.sunWrapper:hover {
+  filter: drop-shadow(0 0 10px #ffd54f) drop-shadow(0 0 20px #ffeb3b);
+}
+
+.cloudWrapper {
+  position: absolute;
+  will-change: transform;
+  opacity: 0.8;
+  user-select: none;
+  animation-name: moveCloud;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 2; /* Clouds above sun */
+}
+
+@keyframes moveCloud {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(120vw);
+  }
+}

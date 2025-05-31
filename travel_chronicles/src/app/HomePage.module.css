@@ -1,0 +1,17 @@
+/* HomePage.module.css */
+.main {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  padding: 160px 0;
+  margin-top: 80px;
+}
+
+.videoSection {
+  height: 100vh;
+}

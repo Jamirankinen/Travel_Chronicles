@@ -1,11 +1,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import VideoBackground from '@/components/VideoBackground';
-import Navbar from '@/components/Navbar';
-import FeaturedTrips from '@/components/FeaturedTrips';
-import AboutSection from '@/components/AboutSection';
-import StatsSection from '@/components/StatsSection';
+import styles from './HomePage.module.css';
+
+import VideoBackground from '@/components/Video/VideoBg';
+import Navbar from '@/components/Navbar/Navbar';
+import FeaturedTrips from '@/components/Featured/Featured';
+import AboutSection from '@/components/About/About';
+import StatsSection from '@/components/Stats/Stats';
+import SkyBackground from '@/components/Animations/SkyBackground';
 
 export default function HomePage() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -20,21 +23,23 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="relative h-full w-full overflow-x-hidden">
+    <main className={styles.main}>
       {showNavbar && <Navbar />}
 
       {/* Background Video with Animated Overlay Text */}
-      <section className="relative h-screen w-full">
+      <section className={styles.videoSection}>
         <VideoBackground />
       </section>
 
-      {/* Animated Blurry Background Section */}
-      <section className="relative z-0 w-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-20">
+      {/* Aurora background starts after video */}
+      <SkyBackground />
+
+      {/* Sections over aurora background */}
+      <section className={styles.featuredSection}>
         <FeaturedTrips />
       </section>
 
-      {/* About + Stats Sections */}
-      <section className="w-full bg-white py-20">
+      <section className={styles.aboutStatsSection}>
         <AboutSection />
         <StatsSection />
       </section>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import styles from './VideoBg.module.css';
 
 const textVariant = {
   hidden: { opacity: 1 },
@@ -15,10 +16,10 @@ const textVariant = {
 };
 
 const letterVariant = {
-  hidden: { opacity: 0, y: `0.25em` },
+  hidden: { opacity: 0, y: '0.25em' },
   visible: {
     opacity: 1,
-    y: `0em`,
+    y: '0em',
     transition: {
       duration: 0.4,
       ease: [0.2, 0.65, 0.3, 0.9],
@@ -46,7 +47,7 @@ export default function VideoBackground() {
       className={className}
     >
       {text.split('').map((char, index) => (
-        <motion.span key={index} variants={letterVariant} className="inline-block">
+        <motion.span key={index} variants={letterVariant} className={styles.letter}>
           {char === ' ' ? '\u00A0' : char}
         </motion.span>
       ))}
@@ -54,15 +55,17 @@ export default function VideoBackground() {
   );
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
-      <video
-        className="absolute inset-0 w-full h-full object-cover filter blur-sm"
-        src="/background.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
+    <div className={styles.wrapper}>
+      <div className={styles.videoContainer}>
+        <video
+          className={styles.video}
+          src="/background.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+      </div>
 
       <AnimatePresence>
         {showText && (
@@ -71,12 +74,12 @@ export default function VideoBackground() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.6 }}
-            className="absolute inset-0 flex flex-col items-center justify-center text-white px-24 text-center z-10"
+            className={styles.overlay}
           >
-            {renderText('Hello, My name is Jami!', 'text-4xl md:text-6xl font-bold drop-shadow-lg mb-6', 1)}
+            {renderText('Hello, My name is Jami!', styles.heading, 1)}
             {renderText(
               'Welcome to my humble collection of my travels & exploits!',
-              'text-xl md:text-3xl font-medium drop-shadow-md max-w-3xl',
+              styles.subheading,
               2
             )}
           </motion.div>
