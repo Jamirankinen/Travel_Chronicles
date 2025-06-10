@@ -8,7 +8,7 @@ import Navbar from '@/components/Navbar/Navbar';
 import FeaturedTrips from '@/components/Featured/Featured';
 import AboutSection from '@/components/About/About';
 import StatsSection from '@/components/Stats/Stats';
-import SkyBackground from '@/components/Animations/SkyBackground';
+import Background from '@/components/Animations/Background';
 
 export default function HomePage() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -32,7 +32,7 @@ export default function HomePage() {
       </section>
 
       {/* Aurora background starts after video */}
-      <SkyBackground />
+      <Background />
 
       {/* Sections over aurora background */}
       <section className={styles.featuredSection}>
