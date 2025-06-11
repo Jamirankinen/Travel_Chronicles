@@ -39,8 +39,11 @@ export default function HomePage() {
         <FeaturedTrips />
       </section>
 
-      <section className={styles.aboutStatsSection}>
+      <section className={styles.aboutSection}>
         <AboutSection />
+      </section>
+
+      <section className={styles.statsSection}>
         <StatsSection />
       </section>
     </main>
