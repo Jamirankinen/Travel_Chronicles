@@ -14,4 +14,13 @@
 
 .videoSection {
   height: 100vh;
+  margin-bottom: 200px;
+}
+
+.featuredSection {
+  margin-bottom: 200px;
+}
+
+.aboutStatsSection {
+  margin-bottom: 200px;
 }
